@@ -21,22 +21,13 @@ with st.sidebar:
 
 # Credentials /  keys
 # os.environ['OPENAI_API_KEY'] = st.secrets.openai.api_key
-# openai.api_key = st.secrets.openai.api_key
-#
-# pinecone.init(api_key=st.secrets.pinecone.api_key, environment=st.secrets.pinecone.env)
-# index = pinecone.Index(st.secrets.pinecone.index_name)
-#
-# llm = OpenAI(model_name="text-davinci-003", openai_api_key=st.secrets.openai.api_key)         # model used to come up with response
-# model = SentenceTransformer('all-MiniLM-L6-v2')     # model used to find matches and to encode initial pdfs
-openai.api_key = "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"
+openai.api_key = st.secrets.openai.api_key
 
-pinecone.init(api_key="232e5f68-2d67-4bc2-9ab4-6dd3855f6e49",
-              environment="us-west4-gcp")
-index = pinecone.Index("plastic-cases-index")
+pinecone.init(api_key=st.secrets.pinecone.api_key, environment=st.secrets.pinecone.env)
+index = pinecone.Index(st.secrets.pinecone.index_name)
 
-llm = OpenAI(model_name="text-davinci-002", openai_api_key=openai.api_key)         # model used to come up with response
+llm = OpenAI(model_name="text-davinci-003", openai_api_key=st.secrets.openai.api_key)         # model used to come up with response
 model = SentenceTransformer('all-MiniLM-L6-v2')     # model used to find matches and to encode initial pdfs
-
 
 
 # conversation state to store history of conservation
